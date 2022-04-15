@@ -47,3 +47,13 @@ body{
 .hidden{
     display: none;
 }
+.gameresult
+{
+margin:20px;
+display: flex;
+padding-left: 10px;
+border-radius: 10px;
+ font-size: 30px;   
+ text-align: center;
+ background-color: white;
+}

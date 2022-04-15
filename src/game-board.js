@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LetterGrid from "./letter-grid";
 import ButtonGrid from "./button-grid";
+import GameResult from "./game-result";
 export default function GameBoard({secretword,maxErrors,isShown}){
     const [guessedLetters,setGuessedLetters] = useState([]);
     const [errorCount,setErrorCount] = useState(0);
@@ -15,6 +16,14 @@ export default function GameBoard({secretword,maxErrors,isShown}){
 
     }
 
+    let isgamewon = true;
+    // console.log(guessedLetters);
+    // console.log(secretword);
+    for(let i=0;i<secretword.length;i++){
+        if ( guessedLetters.indexOf(secretword[i]) == -1){
+            isgamewon = false;
+        }
+    }
     return (
         <div className={isShown ? "" : 'hidden'}>
             <div>
@@ -26,7 +35,12 @@ export default function GameBoard({secretword,maxErrors,isShown}){
         />
         <ButtonGrid 
             letterGuessed = {letterGuessedHandler}
-            isShown = {errorCount < maxErrors }
+            isShown_gamewin = { !isgamewon}
+            isShown_gamelost = {errorCount < maxErrors}
+        />
+        <GameResult
+            isgamelost = {errorCount >= maxErrors}
+            isgamewon = { isgamewon}
         />
         </div>
     );

@@ -1,5 +1,5 @@
 import Button from "./button";
-export default function({letterGuessed,isShown}){
+export default function({letterGuessed,isShown_gamewin,isShown_gamelost}){
     let letters = [
             'A','B','C','D','E','F','G','H','I','J','K','L',
             'M','N','O','P','Q','R','S','T','U','V','W','X',
@@ -17,7 +17,10 @@ export default function({letterGuessed,isShown}){
                     
                             
     let className = "flex flex-wrap mt-10";
-    if (!isShown){
+    if (!isShown_gamewin){
+        className += " hidden";
+    }
+    if (!isShown_gamelost){
         className += " hidden";
     }
     return (
