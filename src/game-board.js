@@ -20,7 +20,7 @@ export default function GameBoard({secretword,maxErrors,isShown}){
     // console.log(guessedLetters);
     // console.log(secretword);
     for(let i=0;i<secretword.length;i++){
-        if ( guessedLetters.indexOf(secretword[i]) == -1){
+        if ( guessedLetters.indexOf(secretword[i]) === -1){
             isgamewon = false;
         }
     }
